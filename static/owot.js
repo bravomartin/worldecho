@@ -187,8 +187,8 @@ YourWorld.Config = function(container) {
     obj.disableDoubleClickZoom = function() {return disableDoubleClickZoom;};
 
     obj.restrictDistance = function() {return restrictDistance;};
-    obj.restrictLatLng = function() {return restrictToLatLng}
-    obj.restrictLocationString = function() {return restrictLocationString}
+    obj.restrictLatLng = function() {return restrictToLatLng;};
+    obj.restrictLocationString = function() {return restrictLocationString;};
 
 
     return obj;
@@ -258,7 +258,7 @@ YourWorld.World = function() {
             streetViewControl: false,
             mapTypeControl:false,
 
-            mapTypeId: _config.mapTypeId(), 
+            mapTypeId: _config.mapTypeId()
 
             // mapTypeControlOptions: { mapTypeIds: [worldOption.bgTiletype, 'dark_map'] }
         }; //end options
@@ -271,7 +271,7 @@ YourWorld.World = function() {
         if(navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function(position) {
                 $("#geoReminder").fadeOut();
-				setTimeout(function(){ $("#loadingIndicator").fadeOut(200) }, 5000);
+				setTimeout(function(){ $("#loadingIndicator").fadeOut(200); }, 5000);
 
                 initialUserPos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 				
@@ -393,7 +393,7 @@ function handleNoGeolocation(errorFlag) {
         // div.style.borderStyle = 'solid';  div.style.borderWidth = '1px'; div.style.borderColor = 'red';
         return div;
 
-    } //end CoordMapType getTile
+    }; //end CoordMapType getTile
 
     var rememberTile = function(tileY, tileX, tileObj) {
         if (_tileByCoord[tileY] === undefined) {
@@ -466,7 +466,7 @@ function handleNoGeolocation(errorFlag) {
                 moveCursor('down', null);
                 moveCursor('down', null);
 				_state.lastClick = _state.selected;
-    }
+    };
 
     var getOrCreateTile = function(tileY, tileX) {
         // Returns the tile at given coords, creating if necessary
@@ -567,8 +567,8 @@ function handleNoGeolocation(errorFlag) {
    	XY_xy =  FromLatLngToTileWithCells(mousePos, map.getZoom());
 
 	//finding the actual element and selecting it
-	return XY_xy
-	}
+	return XY_xy;
+	};
 
 	var moveCursorToClickPosition = function(e){
 		
@@ -578,7 +578,7 @@ function handleNoGeolocation(errorFlag) {
 		//storing last click (that also works as last selected with arrows)
 		_state.lastClick = _state.selected;
 
-	}
+	};
 
 
 	var goBackToCursor = function() {
@@ -606,7 +606,7 @@ function handleNoGeolocation(errorFlag) {
 			map.panBy(dif_X, 0);
 			
 		};
-	}
+	};
 
     var getMandatoryBounds = function() {    
 
@@ -1403,7 +1403,7 @@ function handleNoGeolocation(errorFlag) {
         
         // Hightlight and store
         _state.selected = el; 
-        $(_state.selected).addClass("selected")
+        $(_state.selected).addClass("selected t"+usercolor);
         // _state.selected.style.backgroundColor = 'yellow';
     };
 
